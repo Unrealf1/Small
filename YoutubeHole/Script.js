@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTubeHole
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Redirectiong to the next recommended video every 5-15 seconds and logging title and url
 // @author       Unrealf1
 // @match        https://www.youtube.com/*
@@ -19,15 +19,17 @@ function goNext() {
     const title = document.title;
     const current = window.location.href;
     var next = document.getElementById("thumbnail").href;
-    if (next === "") {
+    if (!next) {
         const b = document.getElementsByClassName("yt-simple-endpoint inline-block style-scope ytd-thumbnail")
         for (var i = 0; i < b.length; i++) {
-            if (b[i].href !== "") {
+            if (b[i].href && !(b[i].href.includes("playlist"))) {
                 next = b[i].href;
+                break;
             }
         }
     }
     if (!next) {
+        console.log("no links found")
         return;
     }
     console.log(title)
