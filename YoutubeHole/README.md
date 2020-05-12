@@ -1,7 +1,7 @@
 # YoutubeHole
-The idea was to see, where would youtube guide me, if I were to click the first recommended video every time. The idea came to me after watching [this talk](https://www.youtube.com/watch?v=v9EKV2nSU8w).
+The idea was to see, where would youtube guide me, if I were to click the first recommended video every time. The idea came to me after watching [this talk](https://www.youtube.com/watch?v=v9EKV2nSU8w). Spoilers - almost every time it's children's content.
 
-## I recommend logging out of your main youtube account to save your own sanity.
+### I recommend logging out of your main youtube account to save your own sanity.
 
 ## How does it work?
 Contents of .js script were placed in tapermonkey browser extension, so on every youtube page it will run automatically and if it is a video page, then in random amount of sedonds (5 to 15) it will log current video in localStorage and switch to the next recommended video.
